@@ -3,7 +3,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 import numpy as np
-from src.py.DDPGAgent import Actor
+from DDPGAgent import Actor, Critic
 import pygame
 
 
@@ -13,7 +13,7 @@ state_dim = env.observation_space.shape[0]
 action_dim = env.action_space.shape[0]
 
 actor = Actor(state_dim, action_dim).to(device)
-actor.load_state_dict(torch.load('actor.pth'))
+actor.load_state_dict(torch.load(r'E:\VSpro\Py\RL_exp\Drl\model_save\actor.pth'))
 
 pygame.init()
 screen = pygame.display.set_mode((500, 500))
